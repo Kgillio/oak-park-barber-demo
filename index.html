@@ -2089,6 +2089,19 @@ body{
             .barberGallery .accordion__item:hover .accordion__title::after{content:none;}
             .barberGallery .accordion__item:hover .accordion__description{transform:translateY(0);opacity:1;}
             .barberGallery .accordion__item:hover .accordion__image{transform:scale(1.1);}
+            .barberGallery .accordion__item:active .accordion__image,
+            .barberGallery .accordion__item.is-touch-active .accordion__image{
+              filter:brightness(1) contrast(1) grayscale(0) sepia(0) saturate(1);
+              transform:scale(1.04);
+            }
+            .barberGallery .accordion__item:active .accordion__overlay,
+            .barberGallery .accordion__item.is-touch-active .accordion__overlay{
+              opacity:0;
+            }
+            .barberGallery .accordion__item{
+              -webkit-tap-highlight-color:transparent;
+              touch-action:manipulation;
+            }
           </style>
 
           <ul class="miniTabs">
@@ -2399,6 +2412,16 @@ function mahriChange(event,pageId,pageNumber){
   document.getElementById(pageId).classList.add('active');
   event.currentTarget.classList.add('active');
 }
+
+document.querySelectorAll('.barberGallery .accordion__item').forEach(function(item){
+  const activate = function(){ item.classList.add('is-touch-active'); };
+  const deactivate = function(){ item.classList.remove('is-touch-active'); };
+
+  item.addEventListener('touchstart', activate, { passive:true });
+  item.addEventListener('touchend', deactivate);
+  item.addEventListener('touchcancel', deactivate);
+  item.addEventListener('touchmove', deactivate);
+});
 </script>
 
 

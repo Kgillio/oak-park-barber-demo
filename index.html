@@ -2401,5 +2401,270 @@ function mahriChange(event,pageId,pageNumber){
 }
 </script>
 
+
+
+<!-- Mobile layout fix: preserve the desktop visual hierarchy without squeezing two desktop columns into a phone -->
+<style id="mobile-layout-fix">
+@media (max-width:980px){
+  html,body{
+    width:100%;
+    height:auto;
+    overflow-x:hidden;
+  }
+
+  body{
+    display:block;
+    padding:0;
+    background:#050505;
+  }
+
+  .siteHeader{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    padding:12px 16px;
+    flex-wrap:nowrap;
+    column-gap:12px;
+    background:linear-gradient(180deg,rgba(8,8,8,.96),rgba(8,8,8,.76) 68%,transparent);
+  }
+
+  .siteHeader__brand{gap:10px;}
+  .siteHeader__logo{width:36px;height:36px;}
+  .siteHeader__name{font-size:14px;}
+  .siteHeader__info{display:none;}
+
+  .bg{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    min-height:100vh;
+    height:auto;
+    overflow:visible;
+    border-radius:0;
+  }
+
+  .imgSide{
+    width:100%;
+    height:68svh;
+    min-height:500px;
+    max-height:720px;
+    flex:0 0 auto;
+  }
+
+  .imgSide::after{
+    top:auto;
+    right:0;
+    bottom:0;
+    left:0;
+    width:auto;
+    height:42%;
+    background:linear-gradient(to bottom,transparent 0%,rgba(9,9,9,.5) 55%,#090909 100%);
+  }
+
+  .imgBox img{
+    object-position:center 18%;
+  }
+
+  .sideQuote{
+    left:16px;
+    top:92px;
+    font-size:7px;
+    letter-spacing:3px;
+  }
+
+  .sideCaption{
+    left:20px;
+    bottom:30px;
+  }
+
+  .sideCaption b{
+    font-size:48px;
+  }
+
+  .rightCol{
+    width:100%;
+    flex:0 0 auto;
+    min-width:0;
+  }
+
+  .storefront-sketch-bg{
+    height:170px;
+    background-position:center 32%;
+    opacity:.6;
+  }
+
+  .content{
+    padding:190px 18px 38px;
+  }
+
+  .page,
+  .page.active{
+    min-height:0;
+    margin-top:0;
+  }
+
+  .pageScroll{
+    overflow:visible;
+    padding-right:0;
+  }
+
+  .pageScroll > div:first-child{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    align-items:start !important;
+    gap:16px !important;
+  }
+
+  .page h1{
+    font-size:40px;
+    letter-spacing:3px;
+  }
+
+  .page h2{
+    margin-top:7px !important;
+    font-size:8px;
+    letter-spacing:3px;
+  }
+
+  .capabilities-list{
+    width:100%;
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    justify-content:space-between !important;
+    padding:12px 0 !important;
+    margin:0 !important;
+    border-top:1px solid var(--line) !important;
+    border-bottom:1px solid var(--line) !important;
+  }
+
+  .capabilities-list-item{
+    flex:1 1 0;
+    justify-content:center;
+    min-width:0;
+    padding:0 8px;
+  }
+
+  .capabilities-list-item:first-child{padding-left:0;}
+  .capabilities-list-item:last-child{padding-right:0;}
+  .capabilities-list-item:not(:last-child):after{height:20px;}
+  .barber-icon{width:28px;height:28px;}
+
+  .dossier{
+    grid-template-columns:minmax(120px,.82fr) minmax(0,1.18fr) !important;
+    align-items:center;
+    gap:16px !important;
+    margin:0 0 24px;
+    padding:26px 0 28px;
+  }
+
+  .dossierName{
+    min-width:0;
+    padding:0;
+  }
+
+  .dossierName .bookNowBtnLight{
+    width:100% !important;
+    max-width:180px !important;
+    padding:19px 12px !important;
+    font-size:10px !important;
+    letter-spacing:2px !important;
+    transform:none !important;
+  }
+
+  .dossierMeta{
+    gap:12px;
+  }
+
+  .dossierMeta p{
+    gap:8px;
+    padding-bottom:10px;
+  }
+
+  .dossierMeta b{
+    font-size:13px;
+    letter-spacing:.7px;
+    line-height:1.15;
+  }
+
+  .dossierMeta span{
+    font-size:21px;
+  }
+
+  .barberGallery .miniTabs{
+    margin-bottom:14px;
+    padding:12px 0;
+  }
+
+  .barberGallery .miniTabs__item{
+    padding:0 15px;
+    font-size:7px;
+    letter-spacing:2px;
+  }
+
+  .barberGallery .accordion{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    width:100%;
+    height:auto;
+    gap:8px;
+  }
+
+  .barberGallery .accordion__item{
+    width:100%;
+    height:190px;
+    min-width:0;
+    flex:none;
+    border-radius:10px;
+  }
+
+  .barberGallery .accordion__item:hover{
+    flex-grow:0;
+  }
+
+  .barberGallery .accordion__item:hover .accordion__image{
+    transform:scale(1.04);
+  }
+
+  .nav{
+    display:none;
+  }
+}
+
+@media (max-width:480px){
+  .siteHeader{padding:10px 14px;}
+  .siteHeader__logo{width:32px;height:32px;}
+  .siteHeader__name{font-size:13px;}
+
+  .imgSide{
+    height:62svh;
+    min-height:440px;
+  }
+
+  .sideCaption b{font-size:43px;}
+
+  .storefront-sketch-bg{height:145px;}
+  .content{padding:164px 16px 34px;}
+
+  .page h1{font-size:36px;}
+  .capabilities-list-item{padding:0 5px;}
+  .barber-icon{width:25px;height:25px;}
+
+  .dossier{
+    grid-template-columns:minmax(112px,.78fr) minmax(0,1.22fr) !important;
+    gap:12px !important;
+  }
+
+  .dossierName .bookNowBtnLight{
+    padding:17px 9px !important;
+    font-size:9px !important;
+  }
+
+  .dossierMeta b{font-size:11.5px;}
+  .dossierMeta span{font-size:19px;}
+  .barberGallery .accordion__item{height:158px;}
+}
+</style>
+
 </body>
 </html>

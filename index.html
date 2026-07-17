@@ -2102,6 +2102,27 @@ body{
               -webkit-tap-highlight-color:transparent;
               touch-action:manipulation;
             }
+
+            .barberEstablished{
+              margin:28px 0 0;
+              padding:24px 20px 26px;
+              border-top:1px solid var(--line);
+              border-bottom:1px solid var(--line);
+              text-align:center;
+              font:500 20px/1.55 var(--softserif);
+              letter-spacing:.2px;
+              color:color-mix(in srgb,var(--ink) 82%,var(--transparent));
+            }
+
+            .barberEstablished::before{
+              content:"Established 2018";
+              display:block;
+              margin-bottom:9px;
+              font:900 8px var(--sans);
+              letter-spacing:3px;
+              text-transform:uppercase;
+              color:var(--primary);
+            }
           </style>
 
           <ul class="miniTabs">
@@ -2147,6 +2168,8 @@ body{
               <div class="accordion__overlay"></div>
             </li>
           </ul>
+
+          <p class="barberEstablished">Established in 2018, Oak Park Barber Salon offers haircuts, coloring, shaves, and beard trimming, amongst other services.</p>
         </div>
 
         <script>
@@ -2685,6 +2708,19 @@ document.querySelectorAll('.barberGallery .accordion__item').forEach(function(it
     transform:scale(1.04);
   }
 
+  .barberEstablished{
+    margin-top:22px;
+    padding:20px 12px 22px;
+    font-size:17px;
+    line-height:1.5;
+  }
+
+  .barberEstablished::before{
+    margin-bottom:8px;
+    font-size:7px;
+    letter-spacing:2.5px;
+  }
+
   .nav{
     display:none;
   }
@@ -2734,6 +2770,10 @@ document.querySelectorAll('.barberGallery .accordion__item').forEach(function(it
   .dossierMeta b{font-size:11.5px;}
   .dossierMeta span{font-size:19px;}
   .barberGallery .accordion__item{height:158px;}
+  .barberEstablished{
+    padding:18px 8px 20px;
+    font-size:16px;
+  }
 }
 </style>
 

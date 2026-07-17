@@ -2123,6 +2123,10 @@ body{
               text-transform:uppercase;
               color:var(--primary);
             }
+
+            .mobileEstablished{
+              display:none;
+            }
           </style>
 
           <ul class="miniTabs">
@@ -2171,6 +2175,8 @@ body{
 
           <p class="barberEstablished">Established in 2018, Oak Park Barber Salon offers haircuts, coloring, shaves, and beard trimming, amongst other services.</p>
         </div>
+
+        <p class="mobileEstablished">Established in 2018, Oak Park Barber Salon offers haircuts, coloring, shaves, and beard trimming, amongst other services.</p>
 
         <script>
           document.querySelectorAll('.capabilities-list-item').forEach(function (item, index) {
@@ -2709,16 +2715,33 @@ document.querySelectorAll('.barberGallery .accordion__item').forEach(function(it
   }
 
   .barberEstablished{
-    margin-top:22px;
-    padding:20px 12px 22px;
-    font-size:17px;
-    line-height:1.5;
+    display:none;
   }
 
-  .barberEstablished::before{
+  .mobileEstablished{
+    display:block !important;
+    position:relative;
+    z-index:30;
+    width:100%;
+    clear:both;
+    margin:22px 0 0;
+    padding:22px 10px 30px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    color:#f2f2f2;
+    text-align:center;
+    font:500 17px/1.55 var(--softserif);
+    letter-spacing:.2px;
+  }
+
+  .mobileEstablished::before{
+    content:"Established 2018";
+    display:block;
     margin-bottom:8px;
-    font-size:7px;
+    color:var(--primary);
+    font:900 7px var(--sans);
     letter-spacing:2.5px;
+    text-transform:uppercase;
   }
 
   .nav{
@@ -2770,8 +2793,9 @@ document.querySelectorAll('.barberGallery .accordion__item').forEach(function(it
   .dossierMeta b{font-size:11.5px;}
   .dossierMeta span{font-size:19px;}
   .barberGallery .accordion__item{height:158px;}
-  .barberEstablished{
-    padding:18px 8px 20px;
+  .mobileEstablished{
+    margin-top:18px;
+    padding:20px 8px 34px;
     font-size:16px;
   }
 }
